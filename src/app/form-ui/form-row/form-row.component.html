@@ -1,0 +1,8 @@
+<div class="form-row__label">
+    <ng-content select="label, [label]"></ng-content>
+    <span *ngIf="required"> *</span>
+</div>
+<div class="form-row__value">
+    <ng-content select="[control]"></ng-content>
+</div>
+<ng-content></ng-content>

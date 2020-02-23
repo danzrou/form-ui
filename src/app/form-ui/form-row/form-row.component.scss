@@ -1,0 +1,5 @@
+.form-row {
+	&.invalid {
+		label { color: red }
+	}
+}
