@@ -7,15 +7,16 @@ export class FormDirective {
   @HostBinding('class.form-dialog')
   baseClass = true;
 
-  @Input() formCols: 2 | 3 = 2;
+  @Input()
+  formLayout: 'two-cols' | 'three-cols' = 'two-cols';
 
   @HostBinding('class.two-cols')
   get twoCols() {
-    return this.formCols === 2;
+    return this.formLayout === 'two-cols';
   }
 
   @HostBinding('class.three-cols')
   get threeCols() {
-    return this.formCols === 3;
+    return this.formLayout === 'three-cols';
   }
 }

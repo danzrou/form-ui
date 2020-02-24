@@ -1,5 +1,16 @@
-import { ChangeDetectionStrategy, Component, HostBinding, Input, Optional, ViewEncapsulation } from '@angular/core';
-import { AbstractControl, FormControl, FormGroupDirective } from '@angular/forms';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  HostBinding,
+  Input,
+  Optional,
+  ViewEncapsulation
+} from '@angular/core';
+import {
+  AbstractControl,
+  FormControl,
+  FormGroupDirective
+} from '@angular/forms';
 
 @Component({
   selector: 'app-form-row',
@@ -23,7 +34,7 @@ export class FormRowComponent {
   }
 
   get required() {
-    return this.validate(this.formControl);
+    return this.hasValidator(this.formControl, 'required');
   }
 
   get formControl() {
@@ -34,10 +45,10 @@ export class FormRowComponent {
     );
   }
 
-  private validate(control: AbstractControl) {
+  private hasValidator(control: AbstractControl, validatorProperty: string) {
     return (
       control.validator &&
-      control.validator(new FormControl()).hasOwnProperty('required')
+      control.validator(new FormControl()).hasOwnProperty(validatorProperty)
     );
   }
 }
